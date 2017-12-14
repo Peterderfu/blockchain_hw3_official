@@ -25,7 +25,7 @@ SECRET_KEY = '7w2#!a_2f%#43!i#hf)-7%-1p#h(3d%&#=$n-n(oec&)xe2lgy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["kapelx.com", "www.kapelx.com"]
 
 
 # Application definition
