@@ -1,0 +1,119 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="{% static 'bitcoin-sipun-template/assets/plugins/bootstrap/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'bitcoin-sipun-template/assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'bitcoin-sipun-template/assets/plugins/pace/pace-theme-big-counter.css' %}" rel="stylesheet" />
+  <link href="{% static 'bitcoin-sipun-template/assets/css/style.css' %}" rel="stylesheet" />
+      <link href="{% static 'bitcoin-sipun-template/assets/css/main-style.css' %}" rel="stylesheet" />
+
+    <!-- Page-Level CSS -->
+    <link href="{% static 'bitcoin-sipun-template/assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
+</head>
+
+					<div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i>Order Form
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Select</a>
+                                        </li>
+                                        <li><a href="#">Exchange</a>
+                                        </li>
+                                        <li><a href="#">Margin</a>
+                                        </li>
+                                        <li class="divider"></li>
+										<li class="dropdown-header">Tools</li>
+                                        <li><a href="#">Calcul</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="row">
+								<form role="form" id = "form1">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label></label>
+											<input class="form-control">
+											<!--<p class="help-block">Example block-level help text here.</p-->
+										</div>
+										
+									</div>
+									<div class="col-sm-6">
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox">
+															OCO
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox">
+															Post only
+													</label>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox">
+															Hidden
+													</label>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</form>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Price USD</label>
+										<input class="form-control">
+										<!--<p class="help-block">Example block-level help text here.</p-->
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+												<label>Amount BTC</label>
+												<input class="form-control">
+												<!--<p class="help-block">Example block-level help text here.</p-->
+									</div>	
+								</div>
+							</div>
+						</div>
+						<div class = "panel-footer">
+							<div class="row">
+								<div class="col-sm-2"></div>
+								<div class="col-sm-2">
+									<button  form="form1" type="submit" class="btn btn-default">Exchange buy</button>
+								</div>
+								<div class="col-sm-2"></div>
+								<div class="col-sm-2"></div>
+								<div class="col-sm-2">
+									<button form="form1" type="submit" class="btn btn-default">Exchange Sell</button>
+								</div>
+								<div class="col-sm-3"></div>
+							</div>
+						</div>
+					</div>
+				

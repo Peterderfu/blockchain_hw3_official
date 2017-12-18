@@ -8,3 +8,15 @@ def index(request):
 
 def priceRealtime(request):
     return render(request, 'task1-price/base_1_price.html')
+
+def indexSipun(request):
+    return render(request, 'home/base_sipun_index.html')
+
+def registerSipun(request):
+    return render(request, 'home/base_sipun_register.html')
+
+def signupSipun(request):
+    return render(request, 'home/base_sipun_signup.html')
+
+def orderFormSipun(request):
+    return render(request, 'home/base_sipun_orderForm.html')

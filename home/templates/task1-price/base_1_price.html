@@ -32,9 +32,12 @@
   TradingView.onready(function()
   {
     var widget = window.tvWidget = new TradingView.widget({
-      fullscreen: true,
+      fullscreen: false,
       symbol: 'AAPL',
-      interval: 'D',
+      interval: '1D',
+      toolbar_bg: '#1b262d',
+      loading_screen: { backgroundColor: "#1b262d" },
+      allow_symbol_change: true,
       container_id: "tv_chart_container",
       //	BEWARE: no trailing slash is expected in feed URL
       datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
@@ -42,12 +45,36 @@
       locale: getParameterByName('lang') || "en",
       //	Regression Trend-related functionality is not implemented yet, so it's hidden for a while
       drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
-      disabled_features: ["use_localstorage_for_settings"],
-      enabled_features: ["study_templates"],
+      disabled_features: ["use_localstorage_for_settings", "left_toolbar", "header_interval_dialog_button", "header_symbol_search", "header_undo_redo", "header_compare", "header_chart_type"],
+      enabled_features: [],
       charts_storage_url: 'http://saveload.tradingview.com',
                 charts_storage_api_version: "1.1",
       client_id: 'tradingview.com',
-      user_id: 'public_user_id'
+      user_id: 'public_user_id',
+      width: '100%',
+      overrides: {
+        "mainSeriesProperties.style": 9,
+
+        "paneProperties.background": "#1b262d",
+        "paneProperties.vertGridProperties.color": "#29343c",
+        "paneProperties.horzGridProperties.color": "#29343c",
+        "paneProperties.crossHairProperties.color": "#69747c",
+
+        "scalesProperties.textColor" : "#999",
+
+        "mainSeriesProperties.hollowCandleStyle.upColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.downColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.drawWick": true,
+        "mainSeriesProperties.hollowCandleStyle.drawBorder": true,
+        "mainSeriesProperties.hollowCandleStyle.borderColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.borderUpColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.borderDownColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.wickUpColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.wickDownColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.barColorsOnPrevClose": false,
+
+        "symbolWatermarkProperties.color" : "rgba(0, 0, 0, 0)",
+      },
     });
   });
 </script>
