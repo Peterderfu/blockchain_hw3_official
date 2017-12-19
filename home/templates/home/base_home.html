@@ -1,5 +1,7 @@
 {% extends "home/base_index.html" %}
 
+{% load staticfiles %}
+
 {% block sidenav_menu_dashboard_list %}
     {% include "home/list_menu_dashboard.html" %}
 {% endblock %}
@@ -8,8 +10,12 @@
 Blockchain Dashboard | Bitcoin Analysis and Visualization
 {% endblock %}
 
+{% block logo_mini %}
+<img src="{% static 'Regna/img/logoimage.png' %}" style="width: 30px; filter: brightness(2.5);" alt="logo" title="" />
+{% endblock %}
+
 {% block logo_name %}
-<b>Ricks</b>Block
+KAPEL<b>X</b>
 {% endblock %}
 
 {% block main_dashboard_content %}

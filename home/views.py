@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import loader
 
 # Views here
+def landing(request):
+    return render(request, 'home/landing_page.html')
+
 def index(request):
     return render(request, 'home/base_home.html')
 
