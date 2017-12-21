@@ -2,6 +2,126 @@
 
 {% load staticfiles %}
 
+{% block sidenav_items %}
+<div style="padding: 10px;">
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Tickers
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Tickers here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Order Form
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Order Form here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Balances
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Balances here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Summary
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Summary here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 {% block main_dashboard_content %}
 <!-- <section class="content-header">
   <h1>
@@ -44,7 +164,12 @@
 
       <div class="box box-info box-solid">
         <div class="box-header">
-          <h3 class="box-title">Chart</h3>
+          
+          <div class="btn-group">
+            <button type="button" class="btn btn-info"><h3 class="box-title">Positions</h3></button>
+            <button type="button" class="btn btn-info"><h3 class="box-title">Orders</h3></button>
+            <button type="button" class="btn btn-info"><h3 class="box-title">Order History</h3></button>
+          </div>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
@@ -65,36 +190,7 @@
         <div class="box-body kapelx-background-color">
           <div class="row">
             <div class="col-md-12">
-              <p>Test</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="box box-primary box-solid">
-        <div class="box-header">
-          <h3 class="box-title">Chart</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <div class="btn-group">
-              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-wrench"></i></button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="box-body kapelx-background-color">
-          <div class="row">
-            <div class="col-md-12">
-              <p>Test</p>
+              <p>Test positions, orders, order history</p>
             </div>
           </div>
         </div>
