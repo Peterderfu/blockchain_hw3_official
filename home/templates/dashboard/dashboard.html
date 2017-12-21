@@ -185,14 +185,14 @@
   {
     var widget = window.tvWidget = new TradingView.widget({
       fullscreen: false,
-      symbol: 'AAPL',
+      symbol: 'Bitcoin',
       interval: '1D',
       toolbar_bg: '#1b262d',
       loading_screen: { backgroundColor: "#1b262d", foregroundColor: "#1b262d" },
       allow_symbol_change: true,
       container_id: "tv_chart_container",
       //	BEWARE: no trailing slash is expected in feed URL
-      datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com"),
+      datafeed: new Datafeeds.UDFCompatibleDatafeed("http://www.kapelx.com/api"),
       library_path: "charting_library/",
       custom_css_url: "/static/kapelx/css/chart-dark-theme.css",
       locale: getParameterByName('lang') || "en",
