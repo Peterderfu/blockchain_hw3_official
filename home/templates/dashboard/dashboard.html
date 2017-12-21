@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block sidenav_items %}
-<div style="padding: 10px;">
+<div class="kapelx-sidebar-windows" style="padding: 10px;">
   <div class="box box-default box-solid">
     <div class="box-header">
       Tickers
@@ -129,6 +129,63 @@
     <small>Version 1.0</small>
   </h1>
 </section> -->
+<section class="content-header">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">BTC/USD</h2>
+          <p class="kapelx-header-description">Select Product</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">497.900</h2>
+          <p class="kapelx-header-description">Last trade price</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">+72.88%</h2>
+          <p class="kapelx-header-description">24h Change</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">597</h2>
+          <p class="kapelx-header-description">24h High</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">196</h2>
+          <p class="kapelx-header-description">24h Low</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">3,681.74</h2>
+          <p class="kapelx-header-description">24h Volume</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="content">
   <div class="row">
@@ -326,6 +383,47 @@
         "symbolWatermarkProperties.color" : "rgba(0, 0, 0, 0)",
       },
     });
+  });
+
+  // For sidebar
+  $.AdminLTESidebarTweak = {};
+
+  $.AdminLTESidebarTweak.options = {
+    EnableRemember: true,
+    NoTransitionAfterReload: false
+    //Removes the transition after page reload.
+  };
+
+  $(function () {
+    "use strict";
+
+    $("body").on("collapsed.pushMenu", function(){
+      if($.AdminLTESidebarTweak.options.EnableRemember){
+        document.cookie = "toggleState=closed";
+        $(".kapelx-sidebar-windows").hide();
+      } 
+    });
+    $("body").on("expanded.pushMenu", function(){
+      if($.AdminLTESidebarTweak.options.EnableRemember){
+        document.cookie = "toggleState=opened";
+        $(".kapelx-sidebar-windows").show();
+      } 
+    });
+
+    if($.AdminLTESidebarTweak.options.EnableRemember){
+      var re = new RegExp('toggleState' + "=([^;]+)");
+      var value = re.exec(document.cookie);
+      var toggleState = (value != null) ? unescape(value[1]) : null;
+      if(toggleState == 'closed'){
+        if($.AdminLTESidebarTweak.options.NoTransitionAfterReload){
+          $("body").addClass('sidebar-collapse hold-transition').delay(100).queue(function(){
+            $(this).removeClass('hold-transition'); 
+          });
+        }else{
+          $("body").addClass('sidebar-collapse');
+        }
+      }
+    } 
   });
 </script>
 {% endblock %}

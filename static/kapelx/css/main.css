@@ -70,3 +70,19 @@
   border: 1px solid transparent;
   height: 35px;
 }
+
+.kapelx-header-title {
+  margin: 0;
+  font-size: 1.5em;
+  color: white;
+}
+
+.kapelx-header-content {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.kapelx-header-description {
+  font-size: 0.9em;
+  color: darkgray;
+}
