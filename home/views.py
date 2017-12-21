@@ -9,8 +9,8 @@ def landing(request):
 def index(request):
     return render(request, 'home/base_home.html')
 
-def priceRealtime(request):
-    return render(request, 'task1-price/base_1_price.html')
+def dashboard(request):
+    return render(request, 'dashboard/dashboard.html')
 
 def indexSipun(request):
     return render(request, 'home/base_sipun_index.html')

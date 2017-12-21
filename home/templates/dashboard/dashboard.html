@@ -1,0 +1,429 @@
+{% extends "home/base_home.html" %}
+
+{% load staticfiles %}
+
+{% block sidenav_items %}
+<div class="kapelx-sidebar-windows" style="padding: 10px;">
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Tickers
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Tickers here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Order Form
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Order Form here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Balances
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Balances here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box box-default box-solid">
+    <div class="box-header">
+      Summary
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <div class="btn-group">
+          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-wrench"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body kapelx-background-color">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Summary here!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main_dashboard_content %}
+<!-- <section class="content-header">
+  <h1>
+    Bitcoin BTC to USD Realtime Price
+    <small>Version 1.0</small>
+  </h1>
+</section> -->
+<section class="content-header">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">BTC/USD</h2>
+          <p class="kapelx-header-description">Select Product</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">497.900</h2>
+          <p class="kapelx-header-description">Last trade price</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">+72.88%</h2>
+          <p class="kapelx-header-description">24h Change</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">597</h2>
+          <p class="kapelx-header-description">24h High</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">196</h2>
+          <p class="kapelx-header-description">24h Low</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-2">
+      <div class="row">
+        <div class="kapelx-header-content">
+          <h2 class="kapelx-header-title">3,681.74</h2>
+          <p class="kapelx-header-description">24h Volume</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-warning box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Chart</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="tv_chart_container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box box-info box-solid">
+        <div class="box-header">
+          
+          <div class="btn-group">
+            <button type="button" class="btn btn-info"><h3 class="box-title">Positions</h3></button>
+            <button type="button" class="btn btn-info"><h3 class="box-title">Orders</h3></button>
+            <button type="button" class="btn btn-info"><h3 class="box-title">Order History</h3></button>
+          </div>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              <p>Test positions, orders, order history</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="box box-danger box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Orderbook</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              {% include 'dashboard/orderbook.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="box box-success box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Trades</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              {% include 'dashboard/trades.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script_personal %}
+<script type="text/javascript" src="{% static 'charting_library/charting_library.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'charting_library/datafeed/udf/datafeed.js' %}"></script>
+<script>
+  $('li#menu_dashboard_list_price_realtime').addClass('active');
+
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  TradingView.onready(function()
+  {
+    var widget = window.tvWidget = new TradingView.widget({
+      fullscreen: false,
+      symbol: 'Bitcoin',
+      interval: '1D',
+      toolbar_bg: '#1b262d',
+      loading_screen: { backgroundColor: "#1b262d", foregroundColor: "#1b262d" },
+      allow_symbol_change: true,
+      container_id: "tv_chart_container",
+      //	BEWARE: no trailing slash is expected in feed URL
+      datafeed: new Datafeeds.UDFCompatibleDatafeed("http://www.kapelx.com/api"),
+      library_path: "charting_library/",
+      custom_css_url: "/static/kapelx/css/chart-dark-theme.css",
+      locale: getParameterByName('lang') || "en",
+      //	Regression Trend-related functionality is not implemented yet, so it's hidden for a while
+      drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
+      disabled_features: ["use_localstorage_for_settings", "left_toolbar", "header_interval_dialog_button", "header_symbol_search", "header_undo_redo", "header_compare", "header_chart_type"],
+      enabled_features: [],
+      charts_storage_url: 'http://saveload.tradingview.com',
+                charts_storage_api_version: "1.1",
+      client_id: 'tradingview.com',
+      user_id: 'public_user_id',
+      width: '100%',
+      height: '450px',
+      overrides: {
+        "mainSeriesProperties.style": 9,
+
+        "paneProperties.background": "#1b262d",
+        "paneProperties.vertGridProperties.color": "#29343c",
+        "paneProperties.horzGridProperties.color": "#29343c",
+        "paneProperties.crossHairProperties.color": "#69747c",
+
+        "scalesProperties.textColor" : "#999",
+
+        "mainSeriesProperties.hollowCandleStyle.upColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.downColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.drawWick": true,
+        "mainSeriesProperties.hollowCandleStyle.drawBorder": true,
+        "mainSeriesProperties.hollowCandleStyle.borderColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.borderUpColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.borderDownColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.wickUpColor": "#6a833a",
+        "mainSeriesProperties.hollowCandleStyle.wickDownColor": "#8a3a3b",
+        "mainSeriesProperties.hollowCandleStyle.barColorsOnPrevClose": false,
+
+        "symbolWatermarkProperties.color" : "rgba(0, 0, 0, 0)",
+      },
+    });
+  });
+
+  // For sidebar
+  $.AdminLTESidebarTweak = {};
+
+  $.AdminLTESidebarTweak.options = {
+    EnableRemember: true,
+    NoTransitionAfterReload: false
+    //Removes the transition after page reload.
+  };
+
+  $(function () {
+    "use strict";
+
+    $("body").on("collapsed.pushMenu", function(){
+      if($.AdminLTESidebarTweak.options.EnableRemember){
+        document.cookie = "toggleState=closed";
+        $(".kapelx-sidebar-windows").hide();
+      } 
+    });
+    $("body").on("expanded.pushMenu", function(){
+      if($.AdminLTESidebarTweak.options.EnableRemember){
+        document.cookie = "toggleState=opened";
+        $(".kapelx-sidebar-windows").show();
+      } 
+    });
+
+    if($.AdminLTESidebarTweak.options.EnableRemember){
+      var re = new RegExp('toggleState' + "=([^;]+)");
+      var value = re.exec(document.cookie);
+      var toggleState = (value != null) ? unescape(value[1]) : null;
+      if(toggleState == 'closed'){
+        if($.AdminLTESidebarTweak.options.NoTransitionAfterReload){
+          $("body").addClass('sidebar-collapse hold-transition').delay(100).queue(function(){
+            $(this).removeClass('hold-transition'); 
+          });
+        }else{
+          $("body").addClass('sidebar-collapse');
+        }
+      }
+    } 
+  });
+</script>
+{% endblock %}
