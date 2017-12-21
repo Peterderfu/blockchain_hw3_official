@@ -26,6 +26,43 @@
   <!-- Main Stylesheet File -->
   <link href="{% static 'Regna/css/style.css' %}" rel="stylesheet">
 
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .kapelx-background-overlay {
+      position: absolute; /* Sit on top of the page content */
+      width: auto; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0;
+      margin-left: -10px;
+      margin-right: -10px;
+      margin-top: 20px;
+      z-index: -2; /* Specify a stack order in case you're using a different order for other elements */
+    }
+
+    .kapelx-background-image-overlay {
+      position: absolute; /* Sit on top of the page content */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0;
+      margin: 0;
+      opacity: 0.6;
+      background-size: cover;
+      background-image: url("{% static 'Regna/img/hero-bg.jpg' %}");
+      z-index: -1; /* Specify a stack order in case you're using a different order for other elements */
+    }
+  </style>
+
 </head>
 
 <body>
@@ -66,7 +103,11 @@
   <!--==========================
     Hero Section
   ============================-->
-  <section id="hero">
+  <section id="hero" style="background-image: none;">
+    <div id="kapelx-background-overlay" class="kapelx-background-overlay">
+    </div>
+    <div id="kapelx-background-image-overlay" class="kapelx-background-image-overlay">
+      </div>
     <div class="hero-container">
       <h1>Welcome to KapelX</h1>
       <h2>Most user friendly and elegant exchange of the world</h2>     
@@ -470,6 +511,9 @@
 
   <!-- Template Main Javascript File -->
   <script src="{% static 'Regna/js/main.js' %}"></script>
+
+  <script src="{% static 'Flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'kapelx/js/flot-demo.js' %}"></script>
 
 </body>
 </html>
