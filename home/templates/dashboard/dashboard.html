@@ -134,7 +134,25 @@
     <div class="col-md-2">
       <div class="row">
         <div class="kapelx-header-content">
-          <h2 class="kapelx-header-title">BTC/USD</h2>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle kapelx-btn-header-dropdown" data-toggle="dropdown" aria-expanded="false">
+              <h2 class="kapelx-header-title">BTC/USD <span class="caret"></span></h2>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="">Bitcoin</a>
+              </li>
+              <li>
+                <a href="">Litecoin</a>
+              </li>
+              <li>
+                <a href="">Ethereum</a>
+              </li>
+              <li>
+                <a href="">Iota</a>
+              </li>
+            </ul>
+          </div>
           <p class="kapelx-header-description">Select Product</p>
         </div>
       </div>
@@ -187,12 +205,16 @@
   </div>
 </section>
 
-<section class="content">
+<section class="content kapelx-content">
   <div class="row">
     <div class="col-md-12">
       <div class="box box-warning box-solid">
         <div class="box-header">
-          <h3 class="box-title">Chart</h3>
+          <div class="btn-group">
+            <button id="toggle_chart_chart" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Chart</h3></button>
+            <button id="toggle_chart_depth" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Depth</h3></button>
+            <button id="toggle_chart_volume" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Volume</h3></button>
+          </div>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
@@ -213,7 +235,15 @@
         <div class="box-body kapelx-background-color">
           <div class="row">
             <div class="col-md-12">
-              <div id="tv_chart_container"></div>
+              <div id="chart_container_chart">
+                <div id="tv_chart_container"></div>
+              </div>
+              <div id="chart_container_depth">
+                {% include 'dashboard/chart-depth.html' %}
+              </div>
+              <div id="chart_container_volume">
+                {% include 'dashboard/chart-volume.html' %}
+              </div>
             </div>
           </div>
         </div>
@@ -339,7 +369,7 @@
     var widget = window.tvWidget = new TradingView.widget({
       fullscreen: false,
       symbol: 'Bitcoin',
-      interval: '1D',
+      interval: '1',
       toolbar_bg: '#1b262d',
       loading_screen: { backgroundColor: "#1b262d", foregroundColor: "#1b262d" },
       allow_symbol_change: true,
@@ -423,7 +453,37 @@
           $("body").addClass('sidebar-collapse');
         }
       }
-    } 
+    }
+
+    $("#chart_container_chart").show();
+    $("#chart_container_depth").hide();
+    $("#chart_container_volume").hide();
+
+    $(".toggle-chart").click(function() {
+      var id = $(this).attr('id');
+      switch (id) {
+        case "toggle_chart_chart":
+          $("#chart_container_chart").show();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").hide();
+          break;
+        case "toggle_chart_depth":
+          $("#chart_container_chart").hide();
+          $("#chart_container_depth").show();
+          $("#chart_container_volume").hide();
+          break;
+        case "toggle_chart_volume":
+          $("#chart_container_chart").hide();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").show();
+          break;
+        default:
+          $("#chart_container_chart").show();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").hide();
+          break;
+      }
+    });
   });
 </script>
 {% endblock %}
