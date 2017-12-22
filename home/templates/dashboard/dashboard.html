@@ -134,7 +134,25 @@
     <div class="col-md-2">
       <div class="row">
         <div class="kapelx-header-content">
-          <h2 class="kapelx-header-title">BTC/USD</h2>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle kapelx-btn-header-dropdown" data-toggle="dropdown" aria-expanded="false">
+              <h2 class="kapelx-header-title">BTC/USD <span class="caret"></span></h2>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="">Bitcoin</a>
+              </li>
+              <li>
+                <a href="">Litecoin</a>
+              </li>
+              <li>
+                <a href="">Ethereum</a>
+              </li>
+              <li>
+                <a href="">Iota</a>
+              </li>
+            </ul>
+          </div>
           <p class="kapelx-header-description">Select Product</p>
         </div>
       </div>
@@ -339,7 +357,7 @@
     var widget = window.tvWidget = new TradingView.widget({
       fullscreen: false,
       symbol: 'Bitcoin',
-      interval: '1D',
+      interval: '1',
       toolbar_bg: '#1b262d',
       loading_screen: { backgroundColor: "#1b262d", foregroundColor: "#1b262d" },
       allow_symbol_change: true,
