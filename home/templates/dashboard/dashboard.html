@@ -211,9 +211,9 @@
       <div class="box box-warning box-solid">
         <div class="box-header">
           <div class="btn-group">
-            <button type="button" class="btn btn-warning"><h3 class="box-title">Chart</h3></button>
-            <button type="button" class="btn btn-warning"><h3 class="box-title">Depth</h3></button>
-            <button type="button" class="btn btn-warning"><h3 class="box-title">Volume</h3></button>
+            <button id="toggle_chart_chart" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Chart</h3></button>
+            <button id="toggle_chart_depth" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Depth</h3></button>
+            <button id="toggle_chart_volume" type="button" class="btn btn-warning toggle-chart"><h3 class="box-title">Volume</h3></button>
           </div>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -235,7 +235,15 @@
         <div class="box-body kapelx-background-color">
           <div class="row">
             <div class="col-md-12">
-              <div id="tv_chart_container"></div>
+              <div id="chart_container_chart">
+                <div id="tv_chart_container"></div>
+              </div>
+              <div id="chart_container_depth">
+                {% include 'dashboard/chart-depth.html' %}
+              </div>
+              <div id="chart_container_volume">
+                {% include 'dashboard/chart-volume.html' %}
+              </div>
             </div>
           </div>
         </div>
@@ -445,7 +453,37 @@
           $("body").addClass('sidebar-collapse');
         }
       }
-    } 
+    }
+
+    $("#chart_container_chart").show();
+    $("#chart_container_depth").hide();
+    $("#chart_container_volume").hide();
+
+    $(".toggle-chart").click(function() {
+      var id = $(this).attr('id');
+      switch (id) {
+        case "toggle_chart_chart":
+          $("#chart_container_chart").show();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").hide();
+          break;
+        case "toggle_chart_depth":
+          $("#chart_container_chart").hide();
+          $("#chart_container_depth").show();
+          $("#chart_container_volume").hide();
+          break;
+        case "toggle_chart_volume":
+          $("#chart_container_chart").hide();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").show();
+          break;
+        default:
+          $("#chart_container_chart").show();
+          $("#chart_container_depth").hide();
+          $("#chart_container_volume").hide();
+          break;
+      }
+    });
   });
 </script>
 {% endblock %}
