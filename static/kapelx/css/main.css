@@ -113,3 +113,7 @@
 .kapelx-nav>li>a>p {
   margin: 0;
 }
+
+.kapelx-content {
+  padding-top: 0;
+}
