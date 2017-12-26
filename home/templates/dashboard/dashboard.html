@@ -4,121 +4,10 @@
 
 {% block sidenav_items %}
 <div class="kapelx-sidebar-windows" style="padding: 10px;">
-  <div class="box box-default box-solid">
-    <div class="box-header">
-      Tickers
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-wrench"></i></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="box-body kapelx-background-color">
-      <div class="row">
-        <div class="col-md-12">
-          <p>Tickers here!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="box box-default box-solid">
-    <div class="box-header">
-      Order Form
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-wrench"></i></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="box-body kapelx-background-color">
-      <div class="row">
-        <div class="col-md-12">
-          <p>Order Form here!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="box box-default box-solid">
-    <div class="box-header">
-      Balances
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-wrench"></i></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="box-body kapelx-background-color">
-      <div class="row">
-        <div class="col-md-12">
-          <p>Balances here!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="box box-default box-solid">
-    <div class="box-header">
-      Summary
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <div class="btn-group">
-          <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-wrench"></i></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="box-body kapelx-background-color">
-      <div class="row">
-        <div class="col-md-12">
-          <p>Summary here!</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% include 'dashboard/sidebar/ticker.html' %}
+  {% include 'dashboard/sidebar/order-form.html' %}
+  {% include 'dashboard/sidebar/balances.html' %}
+  {% include 'dashboard/sidebar/summary.html' %}
 </div>
 {% endblock %}
 
@@ -354,6 +243,46 @@
 {% block script_personal %}
 <script type="text/javascript" src="{% static 'charting_library/charting_library.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'charting_library/datafeed/udf/datafeed.js' %}"></script>
+
+<script>
+  var pieChartCanvas = $('#balancesPieChart')[0].getContext('2d')
+  var pieData        = {
+    datasets: [{
+      data: [10, 20, 30],
+      backgroundColor: [
+        "#878BB6", 
+        "#4ACAB4", 
+        "#FF8153",
+      ],
+      label: 'Dataset 1',
+      borderWidth: [
+        0, 0, 0
+      ]
+    }],
+    labels: [
+      'Red',
+      'Yellow',
+      'Blue'
+    ],
+  }
+
+  var pieOptions     = {
+    'cutoutPercentage'        : 0,
+    'responsive'              : true,
+    'legend'                  : { display: false },
+    'animation'               : {
+      'easing'                : 'easeOutBounce',
+      'numSteps'              : 100,
+    },
+  }
+  
+  var pieChart       = new Chart(pieChartCanvas, {
+    type: 'pie',
+    data: pieData,
+    options: pieOptions
+  })
+</script>
+
 <script>
   $('li#menu_dashboard_list_price_realtime').addClass('active');
 
