@@ -1,0 +1,50 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block main_dashboard_content %}
+<section class="content-header">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-danger box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Balances</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Exchange Wallet</th>
+                    <th scope="col">Margin Wallet</th>
+                    <th scope="col">Funding Wallet</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for balance in balances %}
+                  <tr>
+                    <th scope="row">{{ balance.name }}</th>
+                    <td>{{ balance.exchange|stringformat:'.8f'|intcomma }}</td>
+                    <td>{{ balance.margin|stringformat:'.8f'|intcomma }}</td>
+                    <td>{{ balance.funding|stringformat:'.8f'|intcomma }}</td>
+                    <td>{{ balance.total|stringformat:'.8f'|intcomma }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

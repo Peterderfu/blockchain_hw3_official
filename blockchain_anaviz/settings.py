@@ -33,12 +33,14 @@ ALLOWED_HOSTS = ["kapelx.com", "localhost"]
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'api.apps.ApiConfig',
+    'wallet.apps.WalletConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'djangobower',
     'rest_framework',
 ]
