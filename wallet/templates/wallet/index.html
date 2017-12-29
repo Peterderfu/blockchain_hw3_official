@@ -7,6 +7,54 @@
 <section class="content-header">
   <div class="row">
     <div class="col-md-12">
+      <div class="box box-success box-solid">
+        <div class="box-header">
+          <h3 class="box-title">Transfer</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              <form method="post" action="{% url 'wallet:index' %}">
+                {% csrf_token %}
+
+                {{ transfer_form.non_field_errors }}
+
+                <div class="form-group">
+                  <label for="{{ transfer_form.coin.id_for_label }}">Coin: </label>
+                  {{ transfer_form.coin }}
+                  {{ transfer_form.coin.errors }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ transfer_form.from_wallet.id_for_label }}">From: </label>
+                  {{ transfer_form.from_wallet }}
+                  {{ transfer_form.from_wallet.errors }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ transfer_form.to_wallet.id_for_label }}">To: </label>
+                  {{ transfer_form.to_wallet }}
+                  {{ transfer_form.to_wallet.errors }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ transfer_form.amount.id_for_label }}">Amount: </label>
+                  {{ transfer_form.amount }}
+                  {{ transfer_form.amount.errors }}
+                </div>
+
+                <button type="submit" class="btn btn-success">Transfer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
       <div class="box box-danger box-solid">
         <div class="box-header">
           <h3 class="box-title">Balances</h3>
@@ -31,7 +79,7 @@
                 <tbody>
                   {% for balance in balances %}
                   <tr>
-                    <th scope="row">{{ balance.name }}</th>
+                    <th scope="row">{{ balance.coin }}</th>
                     <td>{{ balance.exchange|stringformat:'.8f'|intcomma }}</td>
                     <td>{{ balance.margin|stringformat:'.8f'|intcomma }}</td>
                     <td>{{ balance.funding|stringformat:'.8f'|intcomma }}</td>
