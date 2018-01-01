@@ -1,14 +1,14 @@
 from django import forms
 
-from .common import COINS, coin_to_display
+from .common import COINS, coin_to_display, ACCOUNTS, account_to_display
 
 
 class TransferForm(forms.Form):
     # Helpers
     def _get_coin_choices():
-        return zip(COINS, [coin_to_display(coin) for coin in COINS])
+        return [(coin, coin_to_display(coin)) for coin in COINS]
     def _get_wallet_choices():
-        return [('exchange', 'Exchange'), ('margin', 'Margin'), ('funding', 'Funding')]
+        return [(account, account_to_display(account)) for account in ACCOUNTS]
 
     # Fields
     coin = forms.ChoiceField(

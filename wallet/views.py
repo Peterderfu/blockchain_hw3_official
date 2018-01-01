@@ -1,8 +1,12 @@
+import datetime
+import pytz
+from operator import itemgetter
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
-from .common import COINS, coin_to_display
+from .common import COINS, coin_to_display, ACCOUNTS, get_user_account, account_to_display
 from .forms import TransferForm
 
 
@@ -15,20 +19,6 @@ def _get_conn_bitcoin():
     rpcport = 8332
     return AuthServiceProxy('http://{}:{}@{}:{}'.format(rpcuser, rpcpassword, rpcconnect, rpcport))
 
-def _get_balance_bitcoin(username):
-    conn = _get_conn_bitcoin()
-
-    exchange = conn.getbalance(username + '_exchange')
-    margin = conn.getbalance(username + '_margin')
-    funding = conn.getbalance(username + '_funding')
-
-    return {
-        'exchange': exchange,
-        'margin': margin,
-        'funding': funding,
-        'total': exchange + margin + funding,
-    }
-
 def _transfer_bitcoin(username, balance, from_wallet, to_wallet, amount):
     conn = _get_conn_bitcoin()
 
@@ -39,6 +29,41 @@ def _transfer_bitcoin(username, balance, from_wallet, to_wallet, amount):
         return True
     else:
         return False
+
+def _get_balance_bitcoin(username):
+    conn = _get_conn_bitcoin()
+
+    balance = {}
+    for account in ACCOUNTS:
+        balance[account] = conn.getbalance(get_user_account(username, account))
+    balance['total'] = sum([balance[account] for account in ACCOUNTS])
+
+    return balance
+
+def _get_recent_deposits_bitcoin(username):
+    conn = _get_conn_bitcoin()
+
+    deposits = []
+    for account in ACCOUNTS:
+        transactions = conn.listtransactions(get_user_account(username, account))
+        for t in transactions:
+            if t['category'] == 'receive':
+                deposits.append({
+                    'account': account_to_display(account),
+                    'amount': t['amount'],
+                    'time': pytz.utc.localize(datetime.datetime.fromtimestamp(t['time']))
+                })
+
+    return sorted(deposits, key=itemgetter('time'), reverse=True)
+
+def _get_deposit_addresses_bitcoin(username):
+    conn = _get_conn_bitcoin()
+
+    addresses = {}
+    for account in ACCOUNTS:
+        addresses[account] = conn.getaccountaddress(get_user_account(username, account))
+
+    return addresses
 
 
 """ Views """
@@ -83,3 +108,25 @@ def index(request):
                   'wallet/index.html',
                   {'balances': balances,
                    'transfer_form': transfer_form})
+
+@login_required
+def deposit(request):
+    username = request.user.username
+
+    global_vars = globals()
+
+    bundles = []
+    for coin in COINS:
+        bundle = {'coin': coin_to_display(coin)}
+
+        # Recent deposits
+        bundle['recent_deposits'] = global_vars['_get_recent_deposits_{}'.format(coin)](username)
+
+        # Deposit addresses
+        bundle['deposit_addresses'] = global_vars['_get_deposit_addresses_{}'.format(coin)](username)
+
+        bundles.append(bundle)
+
+    return render(request,
+                  'wallet/deposit.html',
+                  {'bundles': bundles})

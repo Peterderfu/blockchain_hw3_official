@@ -1,0 +1,74 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block main_dashboard_content %}
+<section class="content-header">
+  {% for bundle in bundles %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-success box-solid">
+        <div class="box-header">
+          <h3 class="box-title">{{ bundle.coin }}</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body kapelx-background-color">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Recent Deposits</h3>
+              {% if bundle.recent_deposits %}
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Into</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for deposit in bundle.recent_deposits %}
+                  <tr>
+                    <th scope="row">{{ deposit.time }} (UTC)</th>
+                    <td>{{ deposit.account }}</td>
+                    <td>{{ deposit.amount|stringformat:'.8f'|intcomma }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p>None</p>
+              {% endif %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Deposit Addresses</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Exchange Wallet</th>
+                    <th scope="col">Margin Wallet</th>
+                    <th scope="col">Funding Wallet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text" value="{{ bundle.deposit_addresses.exchange }}" size="45" readonly="readonly">
+                    <td><input type="text" value="{{ bundle.deposit_addresses.margin }}" size="45" readonly="readonly">
+                    <td><input type="text" value="{{ bundle.deposit_addresses.funding }}" size="45" readonly="readonly">
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
